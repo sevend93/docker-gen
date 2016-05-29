@@ -14,6 +14,8 @@ COPY app /app
 RUN cd /app \
 	&& tar zxvf docker-gen.tar.gz \
 	&& cp docker-gen /usr/local/bin/ \
+	&& rm -rf docker-gen \
+	&& rm -rf docker-gen.tar.gz \
 	&& mkdir -p /etc/nginx/certs \
 	&& chmod +x start.sh \
 	&& sed -i "1a setsid docker-gen -watch -only-exposed /app/nginx.tmpl /app/default.conf" /run.sh
