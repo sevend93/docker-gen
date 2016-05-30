@@ -17,6 +17,6 @@ RUN cd /app \
     && rm -rf docker-gen \
     && rm -rf docker-gen.tar.gz \
     && mkdir -p /etc/nginx/certs \
-    && sed -i "1a setsid docker-gen -watch -only-exposed /app/nginx.tmpl /app/default.conf" /run.sh
+    && sed -i "1a setsid docker-gen -watch -only-exposed /app/nginx.tmpl /data/default.conf" /run.sh
 
 CMD ["/run.sh"]
