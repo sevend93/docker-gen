@@ -1,6 +1,6 @@
 # docker-gen
 
-1.宿主主机使用 ngixn＋安全狗 统一对访问流量进行过滤
+1.宿主服务器使用 ngixn＋safedog 统一对访问流量进行安全过滤
 
 2.创建一个 docker-gen 容器对 dokcer 内的 web 容器进行识别并生成 conf 文件以提供宿主服务器的 nginx 进行反向代理
 
