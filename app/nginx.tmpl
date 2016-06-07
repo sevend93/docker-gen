@@ -1,7 +1,6 @@
 {{ $CurrentContainer := where $ "ID" .Docker.CurrentContainerID | first }}
 
 {{ define "upstream" }}
-
 	{{ if .Address }}
 		{{ if and .Container.Node.ID .Address.HostPort }}
 			# {{ .Container.Node.Name }}/{{ .Container.Name }}
@@ -14,12 +13,13 @@
 		# {{ .Container.Name }}
 		server {{ .Network.IP }} down;
 	{{ end }}
-	
 {{ end }}
+
 
 {{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
 
 upstream {{ $host }} {
+	
 {{ range $container := $containers }}
 	{{ $addrLen := len $container.Addresses }}
 	{{ range $knownNetwork := $CurrentContainer.Networks }}
@@ -38,6 +38,7 @@ upstream {{ $host }} {
 		{{ end }}
 	{{ end }}
 {{ end }}
+
 }
 
 {{ end }}
