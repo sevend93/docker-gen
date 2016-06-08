@@ -17,9 +17,7 @@
 
 
 {{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
-
 upstream {{ $host }} {
-	
 {{ range $container := $containers }}
 	{{ $addrLen := len $container.Addresses }}
 	{{ range $knownNetwork := $CurrentContainer.Networks }}
@@ -38,7 +36,5 @@ upstream {{ $host }} {
 		{{ end }}
 	{{ end }}
 {{ end }}
-
 }
-
 {{ end }}
