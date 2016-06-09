@@ -2,7 +2,7 @@ FROM tutum/debian:jessie
 
 RUN apt-get update \
     && rm -r /var/lib/apt/lists/* \
-    && apt-get clean \
+    && apt-get clean
 
 COPY app /app
 
