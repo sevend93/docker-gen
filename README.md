@@ -2,9 +2,9 @@
 
 1.宿主服务器使用 ngixn＋safedog 统一对访问流量进行安全过滤
 
-2.创建一个 docker-gen 容器对 dokcer 内的 web 容器进行识别并生成 conf 文件以提供宿主服务器的 nginx 进行反向代理
+2.创建一个 docker-gen 容器对 dokcer 内的 php-fpm 容器进行识别并生成 conf 文件以提供宿主服务器的 nginx 进行负载均衡
 
-3.docker 内的 web 容器必须设置变量 VIRTUAL_HOST = www.baidu.com （docker-gen判断web容器和域名的依据）
+3.docker 内的 php-fpm 容器必须设置变量 VIRTUAL_HOST = www.baidu.com （docker-gen判断php-fpm容器所服务的域名的依据）
 
 4.docker-gen 容器必须挂载宿主服务器的 /var/run/docker.sock 到容器 /var/run/docker.sock
 
