@@ -12,6 +12,6 @@ RUN cd /app \
     && rm -rf docker-gen \
     && rm -rf docker-gen.tar.gz \
     && mkdir -p /etc/nginx/certs \
-    && sed -i '1a nohup docker-gen -watch -only-exposed /app/nginx.tmpl /data/default.conf &' /etc/rc.local
+    && sed -i '1a nohup docker-gen -watch -only-exposed /app/nginx.tmpl /data/default.conf &' /run.sh
 
 CMD ["/run.sh"]
